@@ -1,0 +1,32 @@
+{
+  "config": {
+    "step": {
+      "user": {
+        "title": "iStrip BLE setup",
+        "description": "Select one of the devices found.",
+        "data": {
+          "address": "Device"
+        }
+      },
+      "bluetooth_confirm": {
+        "title": "Confirm device",
+        "description": "Confirm adding this Bluetooth device.",
+        "data": {}
+      }
+    },
+    "abort": {
+      "already_configured": "Device is already configured",
+      "no_devices_found": "No compatible BLE devices found"
+    },
+    "error": {
+      "no_valid_char_found": "Could not find a writable characteristic on the device"
+    }
+  },
+  "entity": {
+    "light": {
+      "istrip_light": {
+        "name": "Light"
+      }
+    }
+  }
+}
