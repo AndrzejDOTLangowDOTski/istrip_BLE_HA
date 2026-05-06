@@ -24,6 +24,14 @@ Based on: [vakintosh/istrip_plus_HA](https://github.com/vakintosh/istrip_plus_HA
 
 ---
 
+## Tested Hardware
+
+| Device | Link |
+|---|---|
+| Diyife TV LED Lights 4m, RGB, BLE + App + Remote, 55-60" TV | [Amazon UK](https://www.amazon.co.uk/dp/B0DT9K355C?th=1) |
+
+---
+
 ## Features
 
 - ON / OFF
