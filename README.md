@@ -1,6 +1,19 @@
+# ⚠️ THIS IS A FORK ⚠️
+
+## FORKED FROM [vakintosh/istrip_plus_HA](https://github.com/vakintosh/istrip_plus_HA)
+
+> **VIBE CODED USING AI — Anthropic Claude (free tier)**
+>
+> Big thank you to [@vakintosh](https://github.com/vakintosh) for the original work.
+> I'm sorry for butchering your code with AI. You did the hard part — I just tweaked it with Claude's help. Respect. 🙏
+
+---
+
 # iStrip+ BLE Light — Home Assistant Custom Integration
 
 Custom integration for controlling **Diyife / iStrip+** Bluetooth LED strip lights from Home Assistant.
+
+**Protocol:** Bluetooth Low Energy (BLE), AES-128 ECB encrypted payloads
 
 Tested on:
 - Diyife Smart LED Strip Light (model HLS12, 5M, 150 LED)
@@ -32,6 +45,17 @@ Based on: [vakintosh/istrip_plus_HA](https://github.com/vakintosh/istrip_plus_HA
 | Blue Breathing | Blue Strobe |
 | Green Breathing | Green Strobe |
 
+### Default speeds per effect type
+
+| Effect type | Default speed | Reason |
+|---|---|---|
+| Flash (7-Color, 3-Color) | 100 | Fast by design |
+| Strobe (Red, Blue, Green) | 100 | Fast by design |
+| Breathing (Red, Blue, Green, 7-Color, 3-Color) | 1 | Slow / smooth by design |
+| Fade (7-Color, 3-Color) | 1 | Slow / smooth by design |
+
+Speeds are overridable at runtime via `istrip.set_effect` (with optional `speed`) or `istrip.set_speed`.
+
 ---
 
 ## Requirements
@@ -46,7 +70,7 @@ Based on: [vakintosh/istrip_plus_HA](https://github.com/vakintosh/istrip_plus_HA
 
 ```bash
 cd /config/custom_components
-git clone https://coderepo.andrzejl.eu/AndrzejL/iStrip.git temp_istrip
+git clone https://github.com/AndrzejDOTLangowDOTski/istrip_BLE_HA.git temp_istrip
 cp -r temp_istrip/istrip ./istrip
 rm -rf temp_istrip
 ```
@@ -65,14 +89,14 @@ Restart Home Assistant, then:
 |---|---|---|---|
 | `entity_id` | string | yes | Target light entity |
 | `effect` | string | yes | Effect name (see list above) |
-| `speed` | int 1–100 | no | Animation speed |
+| `speed` | int 1–100 | no | Animation speed (overrides default for this effect) |
 
 ### `istrip.set_speed`
 
 | Field | Type | Required | Description |
 |---|---|---|---|
 | `entity_id` | string | yes | Target light entity |
-| `speed` | int 1–100 | yes | Speed for current effect |
+| `speed` | int 1–100 | yes | Speed for current active effect |
 
 ---
 
